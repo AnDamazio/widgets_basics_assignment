@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/widgets.dart';
 import 'package:widgets_basics_assignment/text_control.dart';
 import 'package:widgets_basics_assignment/text.dart';
 
@@ -17,7 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int textPointer = 0;
+  int _textPointer = 0;
   List<String> text = [
     'I will never gonna change',
     'Oh, no... you\'ve got me',
@@ -26,11 +23,10 @@ class _MyAppState extends State<MyApp> {
   ];
 
   VoidCallback? changeText() {
-    if (textPointer + 1 < text.length) {
+    if (_textPointer + 1 < text.length) {
       setState(() {
-        textPointer++;
+        _textPointer++;
       });
-      print([textPointer, text.length]);
     }
     return null;
   }
@@ -46,7 +42,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            ScreenText(text: text[textPointer]),
+            ScreenText(text: text[_textPointer]),
             TextControl(changeText),
           ],
         ),
@@ -54,18 +50,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-// Container(
-//           margin: const EdgeInsets.all(10),
-//           child: Center(
-//             child: Column(
-//               children: const <Widget>[
-//                 Text(
-//                   'I will never gonna change!',
-//                   style: TextStyle(fontSize: 40),
-//                 ),
-//                 ElevatedButton(onPressed: onPressed, child: child)
-//               ],
-//             ),
-//           ),
-//         ),

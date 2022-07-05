@@ -11,13 +11,9 @@ class ScreenText extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(10),
       child: Center(
-        child: Column(
-          children: <Widget>[
-            Text(
-              text,
-              style: const TextStyle(fontSize: 40),
-            ),
-          ],
+        child: Text(
+          text,
+          style: const TextStyle(fontSize: 40),
         ),
       ),
     );
